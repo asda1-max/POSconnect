@@ -5,19 +5,26 @@ from utils import printManager as PM
     
 class appGui(gui.CTk):
     """
-    Gui Manager Class
+    GUI Manager Class
     """
 
     def __init__(self):
+        """
+        GUI initialization
+        """
         super().__init__()
         self.title = gui.CTkLabel(self, text="Print a test page", font=("arial", 40, "bold"))
+        self.label1 = gui.CTkLabel(self, text="Title :")
         self.textbox1  = gui.CTkTextbox(self, height=50)
-        self.textbox2  = gui.CTkTextbox(self)
+        self.label2 = gui.CTkLabel(self, text="Text :")
+        self.textbox2  = gui.CTkTextbox(self,height=50)
         self.button1 = gui.CTkButton(self, command=self.openprint,text="test print")
 
         self.title.pack(pady =(30,0))
-        self.textbox1.pack(pady =(30,0))
-        self.textbox2.pack(pady =(30,0))
+        self.label1.pack(pady =(30,0))
+        self.textbox1.pack()
+        self.label2.pack(pady =(30,0))
+        self.textbox2.pack()
         self.button1.pack(pady = (30,0))
     
     def startGUI(self):
