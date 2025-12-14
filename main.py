@@ -15,9 +15,9 @@ class appGui(gui.CTk):
         super().__init__()
         self.title = gui.CTkLabel(self, text="Print a test page", font=("arial", 40, "bold"))
         self.label1 = gui.CTkLabel(self, text="Title :")
-        self.textbox1  = gui.CTkTextbox(self, height=50)
+        self.textbox1  = gui.CTkTextbox(self, height=50, width=200)
         self.label2 = gui.CTkLabel(self, text="Text :")
-        self.textbox2  = gui.CTkTextbox(self,height=50)
+        self.textbox2  = gui.CTkTextbox(self,height=100, width=300)
         self.button1 = gui.CTkButton(self, command=self.openprint,text="test print")
 
         self.title.pack(pady =(30,0))
@@ -39,7 +39,11 @@ class appGui(gui.CTk):
         """
         self.text1 = self.textbox1.get("0.0", "end")
         self.text2 = self.textbox2.get("0.0", "end")
+
         PM.printThis(self.text1, self.text2)
+
+        self.text1 = self.textbox1.delete("0.0", "end")
+        self.text2 = self.textbox2.delete("0.0", "end")
         
 
 
