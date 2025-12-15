@@ -4,14 +4,14 @@ print("loadded")
 
 def printThis(title = "title 1",text="text"):
     font = {
-        "height": 9,
+        "height": 14,
         "weight" : 800,
         "underline" : 30
         }
     fontTitle = {
-        "height": 20,
+        "height": 18,
         "weight" : 1,
-        "underline" : 30
+        "underline" : 0
         }
     with Printer(linegap=1,printer_name="POS58") as printer:
         printer.text(title, font_config=fontTitle)
