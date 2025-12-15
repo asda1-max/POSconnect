@@ -6,7 +6,7 @@ def printThis(title = "title 1",text="text"):
     font = {
         "height": 14,
         "weight" : 800,
-        "underline" : 30
+        "underline" : 0
         }
     fontTitle = {
         "height": 18,
