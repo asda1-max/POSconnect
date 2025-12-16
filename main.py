@@ -45,6 +45,8 @@ class appGui(gui.CTk):
         self.radButton1 = gui.CTkRadioButton(self.radioButtonPane,text="Task")
         self.radButton2 = gui.CTkRadioButton(self.radioButtonPane,text="Projects")
         self.radButton3 = gui.CTkRadioButton(self.radioButtonPane,text="Big Projects")
+        self.labelAdvOption = gui.CTkLabel(self.optionFrame, text ="Advanced Settings : ", font=("arial", 20) )
+        self.advOptionButton = gui.CTkButton(self.optionFrame, text ="Font Settings")
 
         self.mainFrame.grid(row = 0, column = 0, sticky = "NSEW", rowspan = 2, padx = 20, pady = 20)
         self.optionFrame.grid(row = 0, column = 1, sticky = "NSEW", rowspan = 2, padx = (0,20), pady = 20)
@@ -65,6 +67,8 @@ class appGui(gui.CTk):
         self.radButton1.grid(row = 0, padx = 30,pady = (40,0))
         self.radButton2.grid(row = 1, padx = 30,pady = (20,0))
         self.radButton3.grid(row = 2, padx = 30,pady = (20,40))
+        self.labelAdvOption.grid(row = 3,column = 0, sticky= "NSEW", pady = 20, padx = 20)
+        self.advOptionButton.grid(row = 4,column = 0, sticky = "NSEW", pady = (0,20), padx = 20)
         
     
     def startGUI(self):
