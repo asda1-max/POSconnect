@@ -16,9 +16,8 @@ def printThis(title = "title 1",text="text"):
         "height" : 50
     }
     with Printer(linegap=1,printer_name="POS58") as printer:
-        mergin = " "
+        printer.text(" " * 5, font_config=font)
         printer.start_page()
-        printer.text(mergin,font_config=margin)
         printer.text("==============================",font_config=font)
         printer.text(" ",font_config=font)
         printer.text(title, font_config=fontTitle,align="center")
