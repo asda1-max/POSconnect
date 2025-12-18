@@ -1,6 +1,6 @@
 import customtkinter as gui
 import time
-from utils import printManager as PM
+from control import printHandler as PH
 
 class ToplevelWindow(gui.CTkToplevel):
     def __init__(self, *args, **kwargs):
@@ -78,7 +78,6 @@ class appGui(gui.CTk):
         self.labelAdvOption.grid(row = 3,column = 0, sticky= "NSEW", pady = 20, padx = 20)
         self.advOptionButton.grid(row = 4,column = 0, sticky = "NSEW", pady = (0,20), padx = 20)
         
-    
     def startGUI(self):
         """
         Start the GUI
@@ -96,7 +95,7 @@ class appGui(gui.CTk):
         self.text1 = self.textbox1.get("0.0", "end")
         self.text2 = self.textbox2.get("0.0", "end")
 
-        PM.printThis(self.text1, self.text2)
+        PH.printThis(self.text1, self.text2)
         self.resetTextBox()
     
     def setTask(self):
