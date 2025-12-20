@@ -1,12 +1,29 @@
 from model import printManager as PM
 from tkinter import messagebox as MB
 
+printer = None
+
+def init_printer(printer_name = "POS58"):
+    """
+    Docstring for init_printer
+    
+    :param printer_name: Description
+    """
+    global printer
+    printer = PM.setPrinter(printer_name)
+
 def printThis(title = "title 1",text="text"):
+    """
+    Docstring for printThis
+    
+    :param title: Description
+    :param text: Description
+    """
     if title.strip() == "" and text.strip() == "":
         MB.showerror(title="Error", message="Error Printing : \nTitle and Text are Empty, Make sure to atleast fill one field", icon="warning")
         return None
     try:
-        PM.printThis(title, text)
+        printer.printThis(title, text)
         print("asu")
     except:
         print("Error, ")
