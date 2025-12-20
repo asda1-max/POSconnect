@@ -10,13 +10,12 @@ class setPrinter():
         """
         self.p = printer.Win32Raw(printer_name)
 
-    def printConfigHelper(self):
-        """
-        Docstring for printConfigHelper
+    def setFontHuge(self):
+        self.p._raw(b'\x1d\x21\x22')
+
+    def setFontSmall(self):
+        self.p._raw(b'\x1d\x21\x00')
         
-        :param self: Description
-        """
-        self.p.set()
 
     def printThis(self,title, text):
         """
@@ -27,9 +26,16 @@ class setPrinter():
         """
         try:
             self.p.open()
+            self.setFontSmall()
+            self.p.text("\n\n\n\n================================\n\n")
+            self.setFontHuge()
+            self.p.set(align="center", bold=True)
+            self.setFontHuge()
             self.p.text(title)
-            self.p.text("\n\n=========================\n\n")
+            self.p.set(align="left", bold=False)
+            self.setFontSmall()
+            self.p.text("\n\n================================\n\n")
             self.p.text(text)
-            self.p.cut() 
+            self.p.text("\n\n================================\n\n")
         finally:
             self.p.close()

@@ -12,6 +12,9 @@ def init_printer(printer_name = "POS58"):
     global printer
     printer = PM.setPrinter(printer_name)
 
+
+
+
 def printThis(title = "title 1",text="text"):
     """
     Docstring for printThis
