@@ -5,8 +5,7 @@ class setPrinter():
         """
         Docstring for __init__
         
-        :param self: Description
-        :param printer_name: Description
+        :param printer_name: Your printer name
         """
         self.p = printer.Win32Raw(printer_name)
 
@@ -21,8 +20,8 @@ class setPrinter():
         """
         Docstring for printThis
         
-        :param title: Description
-        :param text: Description
+        :param title: Insert title text here
+        :param text: Insert text here
         """
         try:
             self.p.open()

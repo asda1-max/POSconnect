@@ -7,7 +7,7 @@ def init_printer(printer_name = "POS58"):
     """
     Docstring for init_printer
     
-    :param printer_name: Description
+    :param printer_name: Your printer name
     """
     global printer
     printer = PM.setPrinter(printer_name)
@@ -19,8 +19,8 @@ def printThis(title = "title 1",text="text"):
     """
     Docstring for printThis
     
-    :param title: Description
-    :param text: Description
+    :param title: Title
+    :param text: Text
     """
     if title.strip() == "" and text.strip() == "":
         MB.showerror(title="Error", message="Error Printing : \nTitle and Text are Empty, Make sure to atleast fill one field", icon="warning")
