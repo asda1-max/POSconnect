@@ -54,7 +54,7 @@ class appGui(gui.CTk):
         self.radButton2 = gui.CTkButton(self.radioButtonPane,text="Project", command=self.setProject)
         self.radButton3 = gui.CTkButton(self.radioButtonPane,text="Big Project",command=self.setBigProject)
         self.labelAdvOption = gui.CTkLabel(self.optionFrame, text ="Advanced Settings : ", font=("arial", 20) )
-        self.advOptionButton = gui.CTkButton(self.optionFrame, text ="Font Settings",command=self.open_toplevel)
+        self.advOptionButton = gui.CTkButton(self.optionFrame, text ="Printer Settings",command=self.open_toplevel)
 
         self.mainFrame.grid(row = 0, column = 0, sticky = "NSEW", rowspan = 2, padx = 20, pady = 20)
         self.optionFrame.grid(row = 0, column = 1, sticky = "NSEW", rowspan = 2, padx = (0,20), pady = 20)
@@ -85,6 +85,11 @@ class appGui(gui.CTk):
         self.mainloop()
 
     def resetTextBox(self):
+        """
+        Docstring for resetTextBox
+        
+        :param self: Description
+        """
         self.text1 = self.textbox1.delete("0.0", "end")
         self.text2 = self.textbox2.delete("0.0", "end")
 
@@ -99,19 +104,38 @@ class appGui(gui.CTk):
         self.resetTextBox()
     
     def setTask(self):
+        """
+        Docstring for setTask
+        
+        :param self: Description
+        """
         self.resetTextBox()
-        self.textbox1.insert("0.0", "Your Task")
+        self.textbox1.insert("0.0", "Your\nTask")
     
     def setProject(self):
+        """
+        Docstring for setProject
+        
+        :param self: Description
+        """
         self.resetTextBox()
-        self.textbox1.insert("0.0", "Your Project")
+        self.textbox1.insert("0.0", "Your\nProject")
     
     def setBigProject(self):
+        """
+        Docstring for setBigProject
+        
+        :param self: Description
+        """
         self.resetTextBox()
-        self.textbox1.insert("0.0", "BIG PROJECT !")
+        self.textbox1.insert("0.0", "BIG\nPROJECT !")
 
     def open_toplevel(self):
+        """
+        Docstring for open_toplevel
         
+        :param self: Description
+        """
         if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
             self.toplevel_window = ToplevelWindow(self)  # create window if its None or destroyed
             self.toplevel_window.after(100, self.toplevel_window.focus)
