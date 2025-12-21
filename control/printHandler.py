@@ -22,12 +22,12 @@ def printThis(title = "title 1",text="text"):
     :param text: Text
     """
     if title.strip() == "" and text.strip() == "":
-        MB.showerror(title="Error", message="Error Printing : \nTitle and Text are Empty, Make sure to atleast fill one field", icon="warning")
+        MB.showerror(title="Error", message="Error Printing : \nTitle and Text are Empty, Make sure to atleast fill one field", icon="error")
         return None
     try:
         printer.printThis(title, text)
         print("asu")
     except:
         print("Error, ")
-        MB.showerror(title=None, message="Error Opening Printer")
+        MB.showerror(title="Error", message="Error Opening Printer",icon="error")
         return "error"

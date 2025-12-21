@@ -1,5 +1,4 @@
 import customtkinter as gui
-import time
 from control import printHandler as PH
 from control import printerConfigHandler as PCH
 
@@ -9,7 +8,7 @@ class ToplevelWindow(gui.CTkToplevel):
         self.geometry("500x300")
         self.label = gui.CTkLabel(self, text="Printer Name : ")
         self.printerTextBox = gui.CTkTextbox(self, height=50)
-        self.button = gui.CTkButton(self,text="submit", command=self.setPrinter)
+        self.button = gui.CTkButton(self,text="Save config", command=self.setPrinter)
         self.label.pack(padx=20, pady=20)
         self.printerTextBox.pack(padx=20, pady=20)
         self.button.pack(padx=20, pady=20)
@@ -151,6 +150,7 @@ class appGui(gui.CTk):
         """
         if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
             self.toplevel_window = ToplevelWindow(self)  # create window if its None or destroyed
+            self.toplevel_window.title("POSconnect!")
             self.toplevel_window.after(100, self.toplevel_window.focus)
         else:
             self.toplevel_window.focus()  # if window exists focus it

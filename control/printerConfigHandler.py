@@ -1,17 +1,19 @@
 import model.printerConfigManager as PCM
+import tkinter.messagebox as MB
 
 def loadConfig():
     try:
         data = PCM.loadConfig()
     except:
-        return "Error getting printer name"
+        MB.showerror(title="Error", message="Error loading config",icon="error")
     return data
 
 def saveConfig(data):
     try:
         PCM.saveConfig(data)
     except:
+        MB.showerror(title="Error", message="Error Saving config",icon="error")
         return "Error"
-    return "saved"
+    MB.showinfo(title="Success", message="Config Saved!",icon="info")
 
     

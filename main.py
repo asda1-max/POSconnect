@@ -5,5 +5,5 @@ PM.init_printer()
 
 app = main.appGui()
 app.geometry("1000x500")
-app.title("woi")
+app.title("POSconnect!")
 app.startGUI()
