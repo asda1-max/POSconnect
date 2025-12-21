@@ -1,9 +1,11 @@
+import control.printerConfigHandler as PCH
 from model import printManager as PM
 from tkinter import messagebox as MB
 
+
 printer = None
 
-def init_printer(printer_name = "POS58"):
+def init_printer(printer_name = PCH.loadConfig()):
     """
     Docstring for init_printer
     

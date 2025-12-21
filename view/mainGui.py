@@ -1,21 +1,24 @@
 import customtkinter as gui
 import time
 from control import printHandler as PH
+from control import printerConfigHandler as PCH
 
 class ToplevelWindow(gui.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.geometry("500x300")
-
         self.label = gui.CTkLabel(self, text="Printer Name : ")
         self.printerTextBox = gui.CTkTextbox(self, height=50)
         self.button = gui.CTkButton(self,text="submit", command=self.setPrinter)
         self.label.pack(padx=20, pady=20)
         self.printerTextBox.pack(padx=20, pady=20)
         self.button.pack(padx=20, pady=20)
+
+        self.printerTextBox.insert("0.0",PCH.loadConfig().strip())
     
     def setPrinter(self):
         printerName = self.printerTextBox.get("0.0", "end").strip()
+        PCH.saveConfig(printerName)
         PH.init_printer(printerName)
         self.destroy()
         
