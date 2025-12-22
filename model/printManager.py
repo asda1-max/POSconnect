@@ -1,4 +1,5 @@
 import escpos.printer as printer
+from model import endLineManager  as ELM
 
 class setPrinter():
     def __init__(self, printer_name):
@@ -34,7 +35,7 @@ class setPrinter():
             self.p.set(align="left", bold=False)
             self.setFontSmall()
             self.p.text("\n\n================================\n\n")
-            self.p.text(text)
+            self.p.text(ELM.autoSpacerEndLiner(text,30))
             self.p.text("\n\n================================\n\n\n\n\n\n\n")
         finally:
             self.p.close()
